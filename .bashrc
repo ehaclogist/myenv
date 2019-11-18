@@ -18,6 +18,19 @@ export FULLPATH=true                # 'true' or 'false'
 dotdir=~/.files; [ -f $dotdir/sys_bashrc ] && . $dotdir/sys_bashrc
 [ $FULLENV != "true" ] && [ -z "$PS!" ] && exit
 
+export TERM=xterm-256color
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    eval "$(dircolors ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    #alias fgrep='fgrep --color=auto'
+    #alias egrep='egrep --color=auto'
+fi
+
 umask 022                        # no write by group or other
 export autologout=0              # disable autologout
 export FIGNORE=".o"              # don't complete .o files
