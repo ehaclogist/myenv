@@ -1,0 +1,49 @@
+#
+# This is an example for the global screenrc file.
+#
+# Flaws of termcap and standard settings are done here.
+#
+
+
+deflogin on
+# no annoying audible bell, please
+vbell off
+# detach on hangup
+autodetach on
+# don't display the copyright page
+startup_message off
+# emulate .logout message
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+
+# set every new windows hardstatus line to somenthing descriptive
+defhstatus "^Et"
+
+defscrollback 10000
+
+#remove some stupid / dangerous key bindings
+bind k
+bind ^k
+bind .
+bind ^\
+bind \\
+bind ^h
+bind h
+#make them better
+bind 'K' kill
+bind 'I' login on
+bind 'O' login off
+bind '}' history
+
+bind ^] paste [.]
+
+bufferfile $HOME/screen-exchange
+
+#
+# Hardstatus Line
+#
+hardstatus on
+hardstatus alwayslastline
+
+hardstatus string "[screen %n] %h"
+hardstatus string "%{= bW} %H [%`] | %-Lw[%n%f %t]* %+Lw %=%C%a %Y-%M-%d"
+
