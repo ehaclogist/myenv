@@ -49,6 +49,8 @@ EIGHTBIT 1
 # color number is number between 0 and 255.
 # You may find following command useful to search the best one for you:
 # for ((x=0; x<=255; x++));do echo -e "${x}:\033[48;5;${x}mcolor\033[000m";done
+#
+# https://www.networkworld.com/article/3269587/customizing-your-text-colors-on-the-linux-command-line.html
 
 #NORMAL 00	# global default, no color code at all
 #FILE 00	# normal file, use no color at all
